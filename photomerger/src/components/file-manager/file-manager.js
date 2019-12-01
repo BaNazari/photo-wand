@@ -2,7 +2,7 @@ import React from 'react';
 
 function FileManager() {
         return(
-            <div className="col-sm">
+            <div>
                 <p>FileManager</p>
             </div>
         )

@@ -11,29 +11,27 @@
 }
 
 .help {
-    margin: auto;
-    height: 25vh;
-    background-color: cornflowerblue;
+    background-color: darkorange;
+    height: 15vh;
 }
 
 .photo-tool {
-    height: 50hvh;
-    margin: auto;
-    background-color: brown;
+    background-color: darkred;
+    height: 50vh;
+    margin: 1vh;
 }
 
 .layer-manager {
-    height: 50%;
-    background-color:coral;
+    background-color: darkslategray;
+    height: 50vh;
+    margin: 1vh;
 }
 
 .file-manager {
+    background-color: darkslateblue;
     height: 15vh;
-    margin: auto;
-    background-color: darkkhaki;
 }
 
 .wrap {
-    margin: 10%;
-    background-color: darkmagenta;
+    margin: 1vh;
 }

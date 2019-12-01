@@ -11,7 +11,7 @@ class PhotoTool extends React.Component {
 
     render() {
         return(
-            <div className="col-6">
+            <div>
                 <p>PhotoTool</p>
             </div>
         )
