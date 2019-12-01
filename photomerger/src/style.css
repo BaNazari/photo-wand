@@ -1,0 +1,39 @@
+.whole-page {
+    width: 90vw;
+    height: 90vh;
+    background-color: antiquewhite;
+    margin: (10%, 15%, 10%, 15%);
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1920px;
+    
+}
+
+.help {
+    margin: auto;
+    height: 25vh;
+    background-color: cornflowerblue;
+}
+
+.photo-tool {
+    height: 50hvh;
+    margin: auto;
+    background-color: brown;
+}
+
+.layer-manager {
+    height: 50%;
+    background-color:coral;
+}
+
+.file-manager {
+    height: 15vh;
+    margin: auto;
+    background-color: darkkhaki;
+}
+
+.wrap {
+    margin: 10%;
+    background-color: darkmagenta;
+}
