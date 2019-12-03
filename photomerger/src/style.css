@@ -19,6 +19,7 @@
     background-color: darkred;
     height: 50vh;
     margin: 1vh;
+    display: flex;
 }
 
 .layer-manager {
@@ -34,4 +35,19 @@
 
 .wrap {
     margin: 1vh;
+}
+
+.my-canvas {
+    border: 2px;
+    background-color: chartreuse;
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.photo-sample {
+    display: block;
+    height: 90%;
+    width: auto;
 }
