@@ -43,11 +43,13 @@
     width: 90%;
     height: 80%;
     margin: auto;
-    display: flex;
+    /* display: flex; */
 }
 
 .photo-sample {
     display: block;
-    height: 90%;
+    width: 90%;
+    height: 80%;
     width: auto;
+    
 }
