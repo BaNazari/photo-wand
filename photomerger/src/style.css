@@ -1,10 +1,11 @@
+ 
 .whole-page {
     width: 90vw;
     height: 90vh;
     background-color: antiquewhite;
     margin: (10%, 15%, 10%, 15%);
 }
-
+ /* vh and vw make it unresponsive*/
 .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 1920px;
     
@@ -13,6 +14,7 @@
 .help {
     background-color: darkorange;
     height: 15vh;
+    cursor: pointer;
 }
 
 .photo-tool {
@@ -20,6 +22,7 @@
     height: 50vh;
     margin: 1vh;
     display: flex;
+    
 }
 
 .layer-manager {
@@ -46,10 +49,88 @@
     /* display: flex; */
 }
 
-.photo-sample {
+/* .photo-sample {
     display: block;
     width: 90%;
     height: 80%;
     width: auto;
-    
+    cursor: move;
+} */
+
+.wrapper {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 10px;
+    z-index: 900;
+    border-style: solid;
+    border: 2px solid blue;
+}
+
+.wrapper:hover img,
+.wrapper:active img {
+    outline: 2px dashed rgba(222,60,80,.9);
+}
+
+.test {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background-color: red;
+    top: 10%;
+    left: 10%
+}
+
+.new-class {
+    background-color: green;
+    border-style: dotted;
+    cursor: move;
+}
+
+.resize-handle-ne,
+.resize-handle-ne,
+.resize-handle-se,
+.resize-handle-nw,
+.resize-handle-sw {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    z-index: 999;
+}
+
+.resize-handle-nw {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+}
+
+.resize-handle-sw {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.resize-handle-ne {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+}
+
+.resize-handle-se {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.hidden {
+    width: 0;
+    height: 0;
+}
+
+.surounda {
+    background-color: violet;
+    position: relative;
 }
