@@ -1,10 +1,11 @@
 //In this commit, I ll implement the resizing functionality on a div element; so lines related to canvas and image are commented. I need to store the coordinations
 //of the 4 corners of the div. Meanwhile I need to instantly re-render the resized div, so the best place to store the coordinations is within component's state 
 //object. However there are more reasons to save the coordinates there. To avoid the performance issues and unwanted re-rendering, I do not call setState inside 
-//of the componentDidMount (for the initial value of the coordinations), but call it via events (first touch of the mouse, initializes the state)
+//of the componentDidMount (for the initial value of the coordinations), but call it via events (first touch of the mouse, initializes the state).
+// I have bound the corners and corner spans in order of topleft, topright, bottomright and bottomleft.
 
 import React from 'react';
-import photo from '../../assets/photoSample.jpg';
+//import photo from '../../assets/photoSample.jpg';
 //import photo from '../../assets/photoSample2.jpg';
 //import photo from '../../assets/photoSample3.jpg';
 //import photo from '../../assets/photoSample4.jpg';
@@ -20,11 +21,17 @@ class PhotoTool extends React.Component {
             resizeHandlePositions: []
         }
 
+        this.photoEditor = React.createRef();
+        this.test = React.createRef();
+        this.hidden = React.createRef();
+        this.topLeft = React.createRef();
+
+
         this.wrap = this.wrap.bind(this)
         this.outlineAdder = this.outlineAdder.bind(this)
         this.outlineRemover = this.outlineRemover.bind(this)
         this.calcCorners = this.calcCorners.bind(this)
-        this.addCornerSpans = this.addCornerSpans.bind(this)
+        this.createResizerNode = this.createResizerNode.bind(this)
         this.setInitialCoordination = this.setInitialCoordination.bind(this)
 
     }
@@ -52,49 +59,60 @@ class PhotoTool extends React.Component {
 
     }
 
-    addCornerSpans(mainElement, internalRef) {
-        var topLeft = document.createElement('span')
-        topLeft.classList.add("resize-handle-nw")
+    createResizerNode(mainElement, internalRef) {
+        var top_left = document.createElement('span')
+        top_left.classList.add("resize-handle-nw")
+        top_left.setAttribute('ref', this.topLeft.name)
+
         var botLeft = document.createElement('span')
         botLeft.classList.add("resize-handle-sw")
+        botLeft.setAttribute('ref', 'botLeft')
+
         var topRight = document.createElement('span')
         topRight.classList.add("resize-handle-ne")
+        topRight.setAttribute('ref', 'topRight')
+
         var botRight = document.createElement('span')
         botRight.classList.add("resize-handle-se")
+        botRight.setAttribute('ref', 'botRight')
+
         mainElement.addEventListener("mouseenter", this.outlineAdder)
         mainElement.addEventListener("mouseleave", this.outlineRemover)
         mainElement.addEventListener("mouseover", this.setInitialCoordination)
-        mainElement.insertBefore(topLeft, internalRef)
+        mainElement.insertBefore(top_left, internalRef)
         mainElement.insertBefore(botLeft, internalRef)
         mainElement.insertBefore(topRight, internalRef)
         mainElement.insertBefore(botRight, internalRef)
+            console.log(this.topLeft)
 
     }
 
     setInitialCoordination(e) {
         var initialPoint = this.calcCorners(e.target)
         this.setState({
-            photoInitialCorners: initialPoint            
+            photoInitialCorners: initialPoint
         })
         console.log(this.state)
         e.target.removeEventListener(e.type, this.setInitialCoordination)
     }
 
+    testRef(element) {
+        element.addEventListener("dblclick", this.sayHi)
+    }
+
+    sayHi() {
+        alert("hi")
+    }
 
     componentDidMount() {
 
-        //const canvas = this.refs.mycanvas
-        //const ctx = canvas.getContext("2d")
-        const img = this.refs.image
+        var test = this.test.current
+        var hidden = this.hidden.current
+        var gholi = this.refs.gholi
+        var cornerSpanOrder = [this.refs.topLeft, this.refs.topRight, this.refs.botRight, this.refs.botLeft]
 
-        //var wrapper = document.createElement('div')
-        var test = this.refs.test
-        var hidden = this.refs.hidden
-        //const range = document.createRange();
-        //const suround = document.createElement('div')
-        //suround.classList.add("surounda")
-
-        this.addCornerSpans(test, hidden)
+        this.createResizerNode(test, hidden)
+        this.testRef(test)
         console.log("width: " + test.clientHeight)
         console.log("height: " + test.clientWidth)
         console.log(test.offsetTop)
@@ -103,24 +121,16 @@ class PhotoTool extends React.Component {
         console.log(this.state)
 
 
-        // window.onload = () => {
-        //     var initialPoint = this.calcCorners(test)
-        //     this.setState({
-        //         photoInitialCorners: initialPoint
-        //     })
-        //     console.log(this.state)
-
-        // }
-
-
-
+        //const canvas = this.refs.mycanvas
+        //const ctx = canvas.getContext("2d")
+        //const img = this.refs.image
+        //var wrapper = document.createElement('div')   
+        //const range = document.createRange();
+        //const suround = document.createElement('div')
+        //suround.classList.add("surounda")
         //range.selectNode(test);
         //range.surroundContents(suround)
 
-        // img.onload = () => {
-        //     console.log("image loadad")
-
-        // }
         // img.onload = () => {
 
         //     var photoRatio = img.width / img.height;
@@ -150,19 +160,19 @@ class PhotoTool extends React.Component {
     render() {
 
         return (
-            <div ref="photo-editor" className="col-6 photo-tool">
+            <div ref={this.photoEditor} className="col-6 photo-tool">
                 {/* <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
                     <img ref="image" src={photo} className="photo-sample" />
                 </canvas> */}
 
-                <div ref="test" className="test">
-                    <div ref="hidden" className="hidden"></div>
+                <div ref={this.test} className="test">
+                    <div ref={this.hidden} className="hidden"></div>
                 </div>
+                <div ref="gholi"></div>
             </div>
         )
 
     }
-
 
 }
 
