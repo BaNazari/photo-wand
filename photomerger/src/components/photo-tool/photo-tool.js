@@ -21,25 +21,27 @@ class PhotoTool extends React.Component {
             resizeHandlePositions: []
         }
 
-        this.photoEditor = React.createRef();
-        this.test = React.createRef();
-        this.hidden = React.createRef();
-        this.topLeft = React.createRef();
+        this._photoEditor = React.createRef();
+        this._test = React.createRef();
+        this._hidden = React.createRef();
+        this._topLeft = React.createRef();
+        this._topRight = React.createRef();
+        this._botLeft = React.createRef();
+        this._botRight = React.createRef();
 
-
-        this.wrap = this.wrap.bind(this)
+        //this.wrap = this.wrap.bind(this)
         this.outlineAdder = this.outlineAdder.bind(this)
         this.outlineRemover = this.outlineRemover.bind(this)
         this.calcCorners = this.calcCorners.bind(this)
         this.createResizerNode = this.createResizerNode.bind(this)
         this.setInitialCoordination = this.setInitialCoordination.bind(this)
-
+        
     }
 
-    wrap(el, wrapper) {
-        el.parentNode.insertBefore(wrapper, el);
-        wrapper.appendChild(el);
-    }
+    // wrap(el, wrapper) {
+    //     el.parentNode.insertBefore(wrapper, el);
+    //     wrapper.appendChild(el);
+    // }
 
     outlineAdder(e) {
         e.target.classList.add("new-class")
@@ -59,31 +61,10 @@ class PhotoTool extends React.Component {
 
     }
 
-    createResizerNode(mainElement, internalRef) {
-        var top_left = document.createElement('span')
-        top_left.classList.add("resize-handle-nw")
-        top_left.setAttribute('ref', this.topLeft.name)
-
-        var botLeft = document.createElement('span')
-        botLeft.classList.add("resize-handle-sw")
-        botLeft.setAttribute('ref', 'botLeft')
-
-        var topRight = document.createElement('span')
-        topRight.classList.add("resize-handle-ne")
-        topRight.setAttribute('ref', 'topRight')
-
-        var botRight = document.createElement('span')
-        botRight.classList.add("resize-handle-se")
-        botRight.setAttribute('ref', 'botRight')
-
+    createResizerNode(mainElement) {
         mainElement.addEventListener("mouseenter", this.outlineAdder)
         mainElement.addEventListener("mouseleave", this.outlineRemover)
         mainElement.addEventListener("mouseover", this.setInitialCoordination)
-        mainElement.insertBefore(top_left, internalRef)
-        mainElement.insertBefore(botLeft, internalRef)
-        mainElement.insertBefore(topRight, internalRef)
-        mainElement.insertBefore(botRight, internalRef)
-            console.log(this.topLeft)
 
     }
 
@@ -96,23 +77,23 @@ class PhotoTool extends React.Component {
         e.target.removeEventListener(e.type, this.setInitialCoordination)
     }
 
-    testRef(element) {
-        element.addEventListener("dblclick", this.sayHi)
-    }
-
-    sayHi() {
-        alert("hi")
-    }
+    
+  
+    //add event listeners for spans: dragstart-drag-drop (set state resizeHandlePositions)
 
     componentDidMount() {
 
-        var test = this.test.current
-        var hidden = this.hidden.current
-        var gholi = this.refs.gholi
-        var cornerSpanOrder = [this.refs.topLeft, this.refs.topRight, this.refs.botRight, this.refs.botLeft]
+        const test = this._test.current
+        //var hidden = this.hidden.current
+        const topLeft = this._topLeft.current
+        const topRight = this._topRight.current
+        const botRight = this._botRight.current
+        const botLeft = this._botLeft.current
+        
+        const cornerSpanOrder = [topLeft, topRight, botRight, botLeft]
 
-        this.createResizerNode(test, hidden)
-        this.testRef(test)
+        this.createResizerNode(test)
+
         console.log("width: " + test.clientHeight)
         console.log("height: " + test.clientWidth)
         console.log(test.offsetTop)
@@ -156,19 +137,25 @@ class PhotoTool extends React.Component {
     }
 
 
-
+    //generate the spans with array nad props
     render() {
-
+       
         return (
             <div ref={this.photoEditor} className="col-6 photo-tool">
                 {/* <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
                     <img ref="image" src={photo} className="photo-sample" />
                 </canvas> */}
 
-                <div ref={this.test} className="test">
-                    <div ref={this.hidden} className="hidden"></div>
+                <div ref={this._test} className="test">
+                    <span class="resize-handle-nw" draggable='true' id="topLeft" ref={this._topLeft} 
+                          ></span>
+                    <span class="resize-handle-ne" draggable='true' id="topRight" ref={this._topRight}></span>
+                    <span class="resize-handle-se" draggable='true' id="botRight" ref={this._botRight}></span>
+                    <span class="resize-handle-sw" draggable='true' id="botLeft" ref={this._botLeft}></span>
+                    
+                    {/* <div ref={this.hidden} className="hidden"></div> */}
                 </div>
-                <div ref="gholi"></div>
+
             </div>
         )
 
