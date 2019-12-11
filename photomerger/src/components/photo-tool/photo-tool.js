@@ -35,9 +35,16 @@ class PhotoTool extends React.Component {
         this.calcCorners = this.calcCorners.bind(this)
         this.createResizerNode = this.createResizerNode.bind(this)
         this.setInitialCoordination = this.setInitialCoordination.bind(this)
-        
+        this.sadsd = this.sadsd.bind(this)
+        this.uppy = this.uppy.bind(this)
+        this.dragStart = this.dragStart.bind(this)
+        this.dragEnd = this.dragEnd.bind(this)
+        this.allowDrop = this.allowDrop.bind(this)
+        this.drop = this.drop.bind(this)
     }
 
+
+  
     // wrap(el, wrapper) {
     //     el.parentNode.insertBefore(wrapper, el);
     //     wrapper.appendChild(el);
@@ -77,8 +84,41 @@ class PhotoTool extends React.Component {
         e.target.removeEventListener(e.type, this.setInitialCoordination)
     }
 
-    
-  
+    sadsd(e) {
+        e.target.style.background = "purple";
+    }
+
+    uppy(e) {
+        e.target.style.background = "green";
+    }
+
+    dragStart(event) {
+        //event.dataTransfer.setData("Text", event.target.id);
+        //document.getElementById("demo").innerHTML = "Started to drag the p element";
+        
+    }
+
+    dragEnd(event) {
+        //document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+        
+    }
+
+    allowDrop(event) {
+        //event.preventDefault();
+        
+    }
+
+    drop(event) {
+        // event.preventDefault();
+        // var data = event.dataTransfer.getData("Text");
+        // event.target.appendChild(document.getElementById(data));
+        alert("hi")
+    }
+    // dragStart(event) {
+    //     event.dataTransfer.setData("Text", event.target.id);
+    //     event.target.style.background = "purple"
+    //   }
+
     //add event listeners for spans: dragstart-drag-drop (set state resizeHandlePositions)
 
     componentDidMount() {
@@ -89,7 +129,7 @@ class PhotoTool extends React.Component {
         const topRight = this._topRight.current
         const botRight = this._botRight.current
         const botLeft = this._botLeft.current
-        
+
         const cornerSpanOrder = [topLeft, topRight, botRight, botLeft]
 
         this.createResizerNode(test)
@@ -139,20 +179,22 @@ class PhotoTool extends React.Component {
 
     //generate the spans with array nad props
     render() {
-       
+
         return (
-            <div ref={this.photoEditor} className="col-6 photo-tool">
+            <div ref={this.photoEditor} ondrop={this.drop} ondragover={this.allowDrop} className="col-6 photo-tool">
                 {/* <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
                     <img ref="image" src={photo} className="photo-sample" />
                 </canvas> */}
-
-                <div ref={this._test} className="test">
-                    <span class="resize-handle-nw" draggable='true' id="topLeft" ref={this._topLeft} 
-                          ></span>
+                
+                <div  ref={this._test} className="test"
+                     >
+                    <span class="resize-handle-nw" draggable='true' id="topLeft" ref={this._topLeft}
+                    ></span>
                     <span class="resize-handle-ne" draggable='true' id="topRight" ref={this._topRight}></span>
                     <span class="resize-handle-se" draggable='true' id="botRight" ref={this._botRight}></span>
                     <span class="resize-handle-sw" draggable='true' id="botLeft" ref={this._botLeft}></span>
-                    
+                    <div ondragstart={this.dragStart} ondragend={this.dragEnd} draggable="true" id="dragtarget">drag me</div>
+
                     {/* <div ref={this.hidden} className="hidden"></div> */}
                 </div>
 
