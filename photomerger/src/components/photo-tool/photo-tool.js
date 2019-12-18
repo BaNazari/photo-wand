@@ -17,9 +17,9 @@ class PhotoTool extends React.Component {
     constructor() {
         super();
         this.state = {
-            photoInitialCorners: [],
-            resizeHandlePositions: []
+            photoCorners: []
         }
+
 
         this._photoEditor = React.createRef();
         this._test = React.createRef();
@@ -28,6 +28,7 @@ class PhotoTool extends React.Component {
         this._topRight = React.createRef();
         this._botLeft = React.createRef();
         this._botRight = React.createRef();
+        this._cornerSpanOrder = [[3, "topLeft", 1], [0, "topRight", 2], [1, "botRight", 3], [2, "botLeft", 0]]
 
         //this.wrap = this.wrap.bind(this)
         this.outlineAdder = this.outlineAdder.bind(this)
@@ -35,16 +36,16 @@ class PhotoTool extends React.Component {
         this.calcCorners = this.calcCorners.bind(this)
         this.createResizerNode = this.createResizerNode.bind(this)
         this.setInitialCoordination = this.setInitialCoordination.bind(this)
-        this.sadsd = this.sadsd.bind(this)
-        this.uppy = this.uppy.bind(this)
         this.dragStart = this.dragStart.bind(this)
         this.dragEnd = this.dragEnd.bind(this)
         this.allowDrop = this.allowDrop.bind(this)
         this.drop = this.drop.bind(this)
+        this.relocateCorner = this.relocateCorner.bind(this)
+        
     }
 
 
-  
+
     // wrap(el, wrapper) {
     //     el.parentNode.insertBefore(wrapper, el);
     //     wrapper.appendChild(el);
@@ -52,7 +53,6 @@ class PhotoTool extends React.Component {
 
     outlineAdder(e) {
         e.target.classList.add("new-class")
-        console.log(e)
     }
 
     outlineRemover(e) {
@@ -76,71 +76,94 @@ class PhotoTool extends React.Component {
     }
 
     setInitialCoordination(e) {
-        var initialPoint = this.calcCorners(e.target)
-        this.setState({
-            photoInitialCorners: initialPoint
-        })
-        console.log(this.state)
-        e.target.removeEventListener(e.type, this.setInitialCoordination)
+        if (e.target.id === "test") {
+            var initialPoint = this.calcCorners(e.target)
+            this.setState({
+                photoCorners: initialPoint
+            })
+            e.target.removeEventListener(e.type, this.setInitialCoordination)
+            console.log(this.state)
+        }
+
     }
 
-    sadsd(e) {
-        e.target.style.background = "purple";
+    dragStart(e) {
+        e.dataTransfer.setData("Text", e.target.id);
+        e.currentTarget.style.backgroundColor = 'black';
+
     }
 
-    uppy(e) {
-        e.target.style.background = "green";
+    dragEnd(e) {
+        e.currentTarget.style.backgroundColor = 'red';
+
     }
 
-    dragStart(event) {
-        //event.dataTransfer.setData("Text", event.target.id);
-        //document.getElementById("demo").innerHTML = "Started to drag the p element";
+    //YOU WANT TO KEEP THE TARGET IN LAST POSITION OF THE MOUSE OR THE DRAG EVENT. YOU MIGHT DO IT BY DRAGEND.
+    allowDrop(e) {
+        //browsers prevent drops by default, so we need to prevent them prevent it!
+        e.preventDefault()
+        e.stopPropagation()
+
+    }
+
+    relocateCorner(element) {
+
+        var relocatorPoint = [element.offsetLeft + 0.5 * element.clientWidth, element.offsetTop + 0.5 * element.clientHeight]
+
+        var i;
+        for (i = 0; i < this._cornerSpanOrder.length; i++) {
+
+            if (this._cornerSpanOrder[i][1] === element.id) {
+                var pointBefore = this._cornerSpanOrder[i][0]
+                var pointAfter = this._cornerSpanOrder[i][2]
+                this.setState(mySt => {
+                    mySt.photoCorners[i] = relocatorPoint
+                    mySt.photoCorners[pointBefore][0] = relocatorPoint[0]
+                    mySt.photoCorners[pointAfter][1] = relocatorPoint[1]
+
+                    return {
+                        photoCorners: mySt.photoCorners
+                    }
+
+                })
+                break
+            }
+        }
+
         
     }
 
-    dragEnd(event) {
-        //document.getElementById("demo").innerHTML = "Finished dragging the p element.";
-        
-    }
+    drop(e) {
+        e.preventDefault();
 
-    allowDrop(event) {
-        //event.preventDefault();
-        
-    }
+        const id = e
+            .dataTransfer
+            .getData('text');
 
-    drop(event) {
-        // event.preventDefault();
-        // var data = event.dataTransfer.getData("Text");
-        // event.target.appendChild(document.getElementById(data));
-        alert("hi")
-    }
-    // dragStart(event) {
-    //     event.dataTransfer.setData("Text", event.target.id);
-    //     event.target.style.background = "purple"
-    //   }
+        const draggableElement = document.getElementById(id);
+        const dropzone = e.target;
+        var x = e.clientX;
+        var y = e.clientY;
+        var parentCornerX = document.getElementById("photo-editor").offsetLeft
+        var parentCornerY = document.getElementById("photo-editor").offsetTop
 
-    //add event listeners for spans: dragstart-drag-drop (set state resizeHandlePositions)
+        draggableElement.style.left = x - parentCornerX - 5 + 'px';
+        draggableElement.style.top = y - parentCornerY - 5 + 'px';
+
+        this.relocateCorner(draggableElement)
+
+    }
 
     componentDidMount() {
 
         const test = this._test.current
-        //var hidden = this.hidden.current
         const topLeft = this._topLeft.current
         const topRight = this._topRight.current
         const botRight = this._botRight.current
         const botLeft = this._botLeft.current
-
-        const cornerSpanOrder = [topLeft, topRight, botRight, botLeft]
+        const photoEditor = this._photoEditor.current
 
         this.createResizerNode(test)
-
-        console.log("width: " + test.clientHeight)
-        console.log("height: " + test.clientWidth)
-        console.log(test.offsetTop)
-        console.log(test.offsetLeft)
-        console.log(test)
-        console.log(this.state)
-
 
         //const canvas = this.refs.mycanvas
         //const ctx = canvas.getContext("2d")
@@ -181,21 +204,17 @@ class PhotoTool extends React.Component {
     render() {
 
         return (
-            <div ref={this.photoEditor} ondrop={this.drop} ondragover={this.allowDrop} className="col-6 photo-tool">
+            <div ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor" className="col-6 photo-tool">
                 {/* <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
                     <img ref="image" src={photo} className="photo-sample" />
                 </canvas> */}
-                
-                <div  ref={this._test} className="test"
-                     >
-                    <span class="resize-handle-nw" draggable='true' id="topLeft" ref={this._topLeft}
+                {/* <div  class="draggy">drag me</div> */}
+                <div ref={this._test} className="test" id="test">
+                    <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-nw" id="topLeft" ref={this._topLeft}
                     ></span>
-                    <span class="resize-handle-ne" draggable='true' id="topRight" ref={this._topRight}></span>
-                    <span class="resize-handle-se" draggable='true' id="botRight" ref={this._botRight}></span>
-                    <span class="resize-handle-sw" draggable='true' id="botLeft" ref={this._botLeft}></span>
-                    <div ondragstart={this.dragStart} ondragend={this.dragEnd} draggable="true" id="dragtarget">drag me</div>
-
-                    {/* <div ref={this.hidden} className="hidden"></div> */}
+                    <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-ne" id="topRight" ref={this._topRight}></span>
+                    <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-se" id="botRight" ref={this._botRight}></span>
+                    <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-sw" id="botLeft" ref={this._botLeft}></span>
                 </div>
 
             </div>

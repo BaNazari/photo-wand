@@ -22,6 +22,7 @@
     height: 50vh;
     margin: 1vh;
     display: flex;
+    padding: 0 !important;
     
 }
 
@@ -75,11 +76,12 @@
 
 .test {
     position: relative;
-    width: 500px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
     background-color: red;
-    top: 10%;
-    left: 10%
+    top: 0%;
+    left: 0%;
+    
 }
 
 .new-class {
@@ -88,7 +90,7 @@
     cursor: move;
 }
 
-.resize-handle-ne,
+
 .resize-handle-ne,
 .resize-handle-se,
 .resize-handle-nw,
@@ -97,13 +99,13 @@
     display: block;
     width: 10px;
     height: 10px;
-    background: yellow;
+    background: rgba(255,0,0,0.7);
     z-index: 999;
 }
 
 .resize-handle-nw {
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     cursor: nw-resize;
 }
 
@@ -125,7 +127,8 @@
     cursor: se-resize;
 }
 
-.hidden {
-    width: 0;
-    height: 0;
+.draggy {
+    height: 50px;
+    width: 100px;
+    position: relative;
 }
