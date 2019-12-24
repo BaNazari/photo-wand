@@ -2,7 +2,7 @@
 .whole-page {
     width: 90vw;
     height: 90vh;
-    background-color: antiquewhite;
+    background-color: slategray;
     margin: (10%, 15%, 10%, 15%);
 }
  /* vh and vw make it unresponsive*/
@@ -12,29 +12,46 @@
 }
 
 .help {
-    background-color: darkorange;
-    height: 15vh;
-    cursor: pointer;
+    margin-top: 10px;
+    background-color: white;
+    height: 100px;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+
 }
 
 .photo-tool {
-    background-color: darkred;
-    height: 50vh;
-    margin: 1vh;
+    
+    margin: 20px;
+    background-color: white;
+    height: 450px;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
     display: flex;
     padding: 0 !important;
     
 }
 
 .layer-manager {
-    background-color: darkslategray;
-    height: 50vh;
-    margin: 1vh;
+    margin: 20px;
+    background-color: white;
+    height: 450px;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
 }
 
 .file-manager {
-    background-color: darkslateblue;
-    height: 15vh;
+    margin-top: 10px;
+    background-color: white;
+    height: 100px;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
 }
 
 .wrap {
@@ -42,21 +59,12 @@
 }
 
 .my-canvas {
-    border: 2px;
-    background-color: chartreuse;
+    border: 2px solid black;
     width: 90%;
     height: 80%;
-    margin: auto;
-    /* display: flex; */
+    margin: auto
 }
 
-/* .photo-sample {
-    display: block;
-    width: 90%;
-    height: 80%;
-    width: auto;
-    cursor: move;
-} */
 
 .wrapper {
     position: relative;

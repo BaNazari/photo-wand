@@ -3,7 +3,7 @@ import React from 'react';
 function Help() {
     return(
         <div className="col-12 help">
-            <p>help</p>
+            <p>Do it!</p>
         </div>
     )
 }

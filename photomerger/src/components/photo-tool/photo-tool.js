@@ -10,7 +10,7 @@ import React from 'react';
 //import photo from '../../assets/photoSample3.jpg';
 //import photo from '../../assets/photoSample4.jpg';
 // import photo from '../../assets/photoSample5.jpg';
-//const photo = require('./heif.jpg')
+const photo = require('./photoSample4.jpg')
 
 class PhotoTool extends React.Component {
 
@@ -46,10 +46,10 @@ class PhotoTool extends React.Component {
 
 
 
-    // wrap(el, wrapper) {
-    //     el.parentNode.insertBefore(wrapper, el);
-    //     wrapper.appendChild(el);
-    // }
+     wrap(el, wrapper) {
+         el.parentNode.insertBefore(wrapper, el);
+         wrapper.appendChild(el);
+     }
 
     outlineAdder(e) {
         e.target.classList.add("new-class")
@@ -165,37 +165,37 @@ class PhotoTool extends React.Component {
 
         this.createResizerNode(test)
 
-        //const canvas = this.refs.mycanvas
-        //const ctx = canvas.getContext("2d")
-        //const img = this.refs.image
-        //var wrapper = document.createElement('div')   
-        //const range = document.createRange();
-        //const suround = document.createElement('div')
-        //suround.classList.add("surounda")
-        //range.selectNode(test);
-        //range.surroundContents(suround)
+        const canvas = this.refs.mycanvas
+        const ctx = canvas.getContext("2d")
+        const img = this.refs.image
+        var wrapper = document.createElement('div')   
+        const range = document.createRange();
+        const suround = document.createElement('div')
+        suround.classList.add("surounda")
+        range.selectNode(test);
+        range.surroundContents(suround)
 
-        // img.onload = () => {
+         img.onload = () => {
 
-        //     var photoRatio = img.width / img.height;
-        //     var canvasRatio = canvas.width / canvas.height
-        //     //If photow/h <= canvasw/h fit photo height to canvas height
-        //     //Else, fit photo width to canvas width
-        //     if (photoRatio <= canvasRatio) {
-        //         ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * img.width * (canvas.height / img.height), 0.9 * canvas.height)
-        //     }
+             var photoRatio = img.width / img.height;
+             var canvasRatio = canvas.width / canvas.height
+             //If photow/h <= canvasw/h fit photo height to canvas height
+             //Else, fit photo width to canvas width
+             if (photoRatio <= canvasRatio) {
+                 ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * img.width * (canvas.height / img.height), 0.9 * canvas.height)
+             }
 
-        //     else {
-        //         ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * canvas.width, 0.9 * img.height * (canvas.width / img.width))
-        //     }
-        // }
-        // console.log("height : "+ img.height)
+             else {
+                 ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * canvas.width, 0.9 * img.height * (canvas.width / img.width))
+             }
+         }
+         console.log("height : "+ img.height)
 
-        // this.wrap(img, wrapper)
-        // wrapper.style.height = img.height
-        // wrapper.style.width = img.width
-        // console.log("height : "+ img.height)
-        //wrapper.className = 'wrapper'
+         this.wrap(img, wrapper)
+         wrapper.style.height = img.height
+         wrapper.style.width = img.width
+         console.log("height : "+ img.height)
+        wrapper.className = 'wrapper'
 
     }
 
@@ -205,10 +205,9 @@ class PhotoTool extends React.Component {
 
         return (
             <div ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor" className="col-6 photo-tool">
-                {/* <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
+                <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
                     <img ref="image" src={photo} className="photo-sample" />
-                </canvas> */}
-                {/* <div  class="draggy">drag me</div> */}
+                </canvas>
                 <div ref={this._test} className="test" id="test">
                     <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-nw" id="topLeft" ref={this._topLeft}
                     ></span>
