@@ -23,21 +23,25 @@
 }
 
 .photo-tool {
-    margin: 20px;
-    background-color: white;
-    height: 450px;
-    border: 2px solid aquamarine;
-    border-radius: 10px;
     display: flex;
     padding: 0 !important;
     
 }
 
-
-.layer-manager {
+.event-manager {
     margin: 20px;
     background-color: white;
     height: 450px;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.layer-manager {
+    
+    background-color: white;
+    height: 400px;
     border: 2px solid aquamarine;
     border-radius: 10px;
     text-align: center;
