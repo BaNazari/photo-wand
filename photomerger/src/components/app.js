@@ -1,42 +1,31 @@
-//read photos from a const
-//show them in canvas
-//be able to pan, take, ... by click
-//scale, rotate, transfer
-
 import React from 'react'
 
-import LayerManger from './layer-manager/layer-manager';
-import PhotoTool from './photo-tool/photo-tool';
-import FileManager from './file-manager/file-manager'
+import ComponentHolder from './component-holder/component-holder'
 import Help from './help/help';
 
 class App extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
+  constructor() {
+    super();
+    this.state = {
 
-        }
     }
+  }
 
-    render() {
+  render() {
 
-        return (
-            <div className="whole-page container">
-                <div class="w-100"></div>                
-                <div className="wrap row  justify-content-center">
-                    <Help />
-                </div>
-                <div className="wrap row  justify-content-center">
-                    <PhotoTool />
-                    <LayerManger />
-                </div>
-                <div className="wrap row  justify-content-center">
-                    <FileManager />
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div className="whole-page container">
+        
+        <div className="block row  justify-content-center">
+          <Help />
+        </div>
+
+        <ComponentHolder />
+
+      </div>
+    )
+  }
 }
 
 export default App

@@ -204,10 +204,11 @@ class PhotoTool extends React.Component {
     render() {
 
         return (
-            <div ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor" className="col-6 photo-tool">
+            <div ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor" className=" photo-tool">
                 <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
                     <img ref="image" src={photo} className="photo-sample" />
                 </canvas>
+                
                 <div ref={this._test} className="test" id="test">
                     <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-nw" id="topLeft" ref={this._topLeft}
                     ></span>

@@ -23,7 +23,6 @@
 }
 
 .photo-tool {
-    
     margin: 20px;
     background-color: white;
     height: 450px;
@@ -33,6 +32,7 @@
     padding: 0 !important;
     
 }
+
 
 .layer-manager {
     margin: 20px;
@@ -139,4 +139,9 @@
     height: 50px;
     width: 100px;
     position: relative;
+}
+
+
+.event-manager {
+    background-color: brown;
 }
