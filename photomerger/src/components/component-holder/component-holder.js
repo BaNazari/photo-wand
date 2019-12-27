@@ -13,7 +13,7 @@ class ComponentHolder extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="component-holder">
                 <div>
                     <EventManager />
                 </div>
