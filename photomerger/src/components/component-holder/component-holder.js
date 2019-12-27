@@ -2,6 +2,7 @@ import React from 'react'
 
 import EventManager from '../event-manager/event-manager'
 import FileManager from '../file-manager/file-manager'
+import Exporter  from '../help/help'
 
 class ComponentHolder extends React.Component {
     constructor() {
@@ -17,8 +18,9 @@ class ComponentHolder extends React.Component {
                 <div>
                     <EventManager />
                 </div>
-                <div className="row justify-content-center">
-                    <FileManager />
+                <div className="row justify-content-between block">
+                    <FileManager/>
+                    <Exporter />
                 </div>
             </div>
         )

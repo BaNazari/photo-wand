@@ -2,7 +2,7 @@ import React from 'react';
 
 function FileManager() {
         return(
-            <div className="col-6 file-manager">
+            <div className="col-5 file-manager">
                 <div>
                     <button className="btn btn-success">+</button>
                 </div>

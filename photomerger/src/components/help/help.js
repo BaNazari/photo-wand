@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Help() {
+function Exporter() {
     return(
-        <div className="col-8 help">
-            <p>Do it!</p>
+        <div className="col-5 exporter">
+            <p>Export!</p>
         </div>
     )
 }
 
-export default Help
+export default Exporter

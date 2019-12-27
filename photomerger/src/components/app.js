@@ -16,10 +16,8 @@ class App extends React.Component {
 
     return (
       <div className="whole-page container">
+
         
-        <div className="block row  justify-content-center">
-          <Help />
-        </div>
 
         <ComponentHolder />
 

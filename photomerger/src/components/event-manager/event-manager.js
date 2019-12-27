@@ -141,7 +141,7 @@ class EventManager extends React.Component {
 
 
     this.relocateCorner(draggableElement)
-    console.log(parentCornerY)
+    console.log(this.state)
 
   }
 
