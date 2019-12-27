@@ -17,7 +17,7 @@ class PhotoTool extends React.Component {
     constructor() {
         super();
         this.state = {
-            photoCorners: []
+            
         }
     }
 

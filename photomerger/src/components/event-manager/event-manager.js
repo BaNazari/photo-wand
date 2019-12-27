@@ -10,7 +10,7 @@ class EventManager extends React.Component {
   constructor() {
     super();
     this.state = {
-
+      photoCorners: []
     }
 
 
@@ -74,12 +74,12 @@ class EventManager extends React.Component {
 
   dragStart(e) {
     e.dataTransfer.setData("Text", e.target.id);
-    e.currentTarget.style.backgroundColor = 'black';
+    //e.currentTarget.style.backgroundColor = 'black';
 
   }
 
   dragEnd(e) {
-    e.currentTarget.style.backgroundColor = 'red';
+    //e.currentTarget.style.backgroundColor = 'red';
 
   }
 
@@ -131,10 +131,17 @@ class EventManager extends React.Component {
     var parentCornerX = document.getElementById("photo-editor").offsetLeft
     var parentCornerY = document.getElementById("photo-editor").offsetTop
 
-    draggableElement.style.left = x - parentCornerX - 5 + 'px';
-    draggableElement.style.top = y - parentCornerY - 5 + 'px';
+ 
+
+    var grandParentCornerX = document.getElementById("event-manager").offsetLeft
+    var grandParentCornerY = document.getElementById("event-manager").offsetTop
+
+    draggableElement.style.left = x - parentCornerX - 5 -grandParentCornerX + 'px';
+    draggableElement.style.top = y - parentCornerY - 5 -grandParentCornerY + 'px';
+
 
     this.relocateCorner(draggableElement)
+    console.log(parentCornerY)
 
   }
 
@@ -154,9 +161,9 @@ class EventManager extends React.Component {
   render() {
 
     return (
-      <div ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor" className=" row event-manager justify-content-center">
+      <div  className=" row event-manager justify-content-center" id="event-manager">
 
-        <div className="col-6 block--middle-row ">
+        <div className="col-6 block--middle-row " ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor">
           <div ref={this._test} className="test" id="test">
             <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-nw" id="topLeft" ref={this._topLeft}></span>
             <span onDragStart={this.dragStart} onDragEnd={this.dragEnd} draggable="true" class="resize-handle-ne" id="topRight" ref={this._topRight}></span>
