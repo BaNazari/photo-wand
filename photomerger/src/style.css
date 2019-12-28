@@ -12,9 +12,8 @@
 
 .exporter {
     margin: 2%;
-    background-color: white;
+    background-color: aquamarine;
     height: 100px;
-    border: 2px solid aquamarine;
     border-radius: 10px;
     text-align: center;
     font-size: 30px;
@@ -34,7 +33,7 @@
 }
 
 .event-manager {
-    border: 2px solid brown;
+    /* border: 2px solid brown; */
     position: relative;
     padding: 0 !important;
     margin: auto;
@@ -47,13 +46,13 @@
     z-index: 500;
     height: 82%;
     padding: 0 !important;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     margin: 0;
 }
 
 .photo-tool-holder {
     position: absolute;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     top: 5%;
     left: 20%;
     padding: 0 !important;
@@ -61,7 +60,7 @@
 }
 
 .component-holder {
-    border: 2px solid mediumvioletred;
+    background-color: gold;
     padding: 10px;
     margin: 5%;
 }
@@ -85,7 +84,7 @@
     margin: 20px;
     background-color: white;
     height: 450px;
-    border: 2px solid aquamarine;
+    background-color: aquamarine;
     border-radius: 10px;
     padding: 20px;
 }
@@ -103,18 +102,49 @@
 }
 
 .file-manager {
+    position: relative;
     margin: 2%;
     background-color: white;
     height: 100px;
-    border: 2px solid aquamarine;
+    background-color: aquamarine;
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
     font-size: 30px;
 }
 
+.img-list-popup{
+    position: absolute;
+    top:-50%;
+    left: 15%;
+    width: 15%;
+    background-color: aquamarine;
+}
+
+.new-selected-img {
+    position: absolute;
+    top: 5%;
+    left: 70%;
+    width: 10%;
+    height: auto;
+}
+
+.add-btn{
+    background-color: gold;
+    font-size: 18px;
+    margin-top: 5%;
+ 
+}
+
+.list-item {
+    background-color: darkcyan;
+    margin: 3%;
+    padding: 10%;
+    border-radius: 4px;
+    font-size: medium;
+}
 
 .my-canvas {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 100%;
     height: 100%;
     margin: 0 ;
@@ -130,7 +160,7 @@
     display: block;
     width: 10px;
     height: 10px;
-    background: rgba(0,250,0,1);
+    background: goldenrod;
     z-index: 999;
 }
 
