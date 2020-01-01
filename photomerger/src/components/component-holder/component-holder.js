@@ -15,8 +15,8 @@ class ComponentHolder extends React.Component {
     
     }
 
-    addImage() {
-
+    addImage(x) {
+        alert(x)
     }
 
     render() {
@@ -26,7 +26,7 @@ class ComponentHolder extends React.Component {
                     <EventManager newImage=""/>
                 </div>
                 <div className="row justify-content-between block">
-                    <FileManager imageAdder=""/>
+                    <FileManager imageAdder={this.addImage}/>
                     <Exporter />
                 </div>
             </div>

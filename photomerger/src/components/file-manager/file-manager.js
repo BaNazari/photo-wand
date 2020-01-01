@@ -10,7 +10,8 @@ class FileManager extends React.Component {
         super()
         this.state = {
             showList: false,
-            imgs: Images
+            imgs: Images,
+            current: null
         }
         this.imageList = this.imageList.bind(this)
         this.selectImg = this.selectImg.bind(this)
@@ -33,15 +34,23 @@ class FileManager extends React.Component {
                 var newImage = document.createElement('img')
                 newImage.classList.add('new-selected-img')
                 imgHolder.appendChild(newImage)
-                var x = "photoSample2"
                 const photoCollection = require.context('../../assets/', true)
                 const photo = photoCollection(`./${this.state.imgs[i].src}`)
-                console.log(photoCollection)
                 newImage.src = photo
                 this.imageList()
-            break
+            
             }
         }
+        this.setState({
+            current: imgId
+        })
+
+    }
+
+
+
+    componentDidUpdate() {
+        console.log(this.state)
 
     }
 
@@ -64,7 +73,7 @@ class FileManager extends React.Component {
                         <div></div>}
                     </div>
                     <div id="img-holder" className="img-holder">Watch here!</div>
-                    <button className="btn add-btn">+</button>
+                    <button className="btn add-btn" onClick={() => this.props.imageAdder(this.state.current)}>+</button>
                 </div>
             </div>
         )
