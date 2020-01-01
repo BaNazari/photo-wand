@@ -110,6 +110,7 @@
     border-radius: 10px;
     text-align: left;
     font-size: 30px;
+    padding: 7px;
 }
 
 .img-list-popup{
@@ -121,18 +122,40 @@
 }
 
 .new-selected-img {
-    position: absolute;
-    top: 5%;
-    left: 70%;
-    width: 10%;
-    height: auto;
+    width: auto;
+    height: 95%;
+    
 }
 
-.add-btn{
+.img-holder {
+    width: 30%;
+    height: 85px;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+}
+
+
+.browse-btn{
+    position: absolute;
+    top: 8%;
+    left: 10px;
     background-color: gold;
     font-size: 18px;
     margin-top: 5%;
- 
+}
+
+.add-btn{
+    position: absolute;
+    top: 8%;
+    right: 10px;
+    background-color: gold;
+    font-size: 18px;
+    margin-top: 5%;
 }
 
 .list-item {

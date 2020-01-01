@@ -28,10 +28,11 @@ class FileManager extends React.Component {
         let i;
         for (i=0; i<this.state.imgs.length; i++) {
             if(this.state.imgs[i].id === imgId) {
-                
+                var imgHolder = document.getElementById("img-holder")
+                imgHolder.removeChild(imgHolder.firstChild)
                 var newImage = document.createElement('img')
                 newImage.classList.add('new-selected-img')
-                document.getElementById("file-manager").appendChild(newImage)
+                imgHolder.appendChild(newImage)
                 var x = "photoSample2"
                 const photoCollection = require.context('../../assets/', true)
                 const photo = photoCollection(`./${this.state.imgs[i].src}`)
@@ -51,17 +52,19 @@ class FileManager extends React.Component {
             select={this.selectImg}
             itemId={item.id}
         ></ImageList>)
-
+            //I put a text or an emplt div inside img-holder, otherwise I ll face an error for first execution of imgHolder.removeChild(imgHolder.firstChild).
         return (
             <div className="col-4 file-manager" id="file-manager">
                 <div>
-                    <button onClick={this.imageList} className="btn add-btn">+</button>
+                    <button onClick={this.imageList} className="btn browse-btn">Browse</button>
                     <div>{this.state.showList ?
                         <div id="img-list-popup" className="img-list-popup">
                             {ImageListItems}
                         </div> :
                         <div></div>}
                     </div>
+                    <div id="img-holder" className="img-holder">Watch here!</div>
+                    <button className="btn add-btn">+</button>
                 </div>
             </div>
         )
