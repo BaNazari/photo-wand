@@ -10,7 +10,7 @@ import React from 'react';
 //import photo from '../../assets/photoSample3.jpg';
 //import photo from '../../assets/photoSample4.jpg';
 // import photo from '../../assets/photoSample5.jpg';
-const photo = require('./photoSample4.jpg')
+const photo = require('../../assets/photoSample4.jpg')
 
 class PhotoTool extends React.Component {
 

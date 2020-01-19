@@ -11,7 +11,7 @@ class FileManager extends React.Component {
         this.state = {
             showList: false,
             imgs: Images,
-            current: null
+            current: 0
         }
         this.imageList = this.imageList.bind(this)
         this.selectImg = this.selectImg.bind(this)
