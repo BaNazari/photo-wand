@@ -10,9 +10,11 @@ class FileManager extends React.Component {
         super()
         this.state = {
             showList: false,
-            imgs: Images,
+            //imgs: Images,
             current: 0
         }
+        this.imgs = Images
+
         this.imageList = this.imageList.bind(this)
         this.selectImg = this.selectImg.bind(this)
     }
@@ -27,15 +29,15 @@ class FileManager extends React.Component {
 
     selectImg(imgId) {
         let i;
-        for (i=0; i<this.state.imgs.length; i++) {
-            if(this.state.imgs[i].id === imgId) {
+        for (i=0; i<this.imgs.length; i++) {
+            if(this.imgs[i].id === imgId) {
                 var imgHolder = document.getElementById("img-holder")
                 imgHolder.removeChild(imgHolder.firstChild)
                 var newImage = document.createElement('img')
                 newImage.classList.add('new-selected-img')
                 imgHolder.appendChild(newImage)
                 const photoCollection = require.context('../../assets/', true)
-                const photo = photoCollection(`./${this.state.imgs[i].src}`)
+                const photo = photoCollection(`./${this.imgs[i].src}`)
                 newImage.src = photo
                 this.imageList()
             
@@ -55,7 +57,7 @@ class FileManager extends React.Component {
     }
 
     render() {
-        const ImageListItems = this.state.imgs.map(item => <ImageList
+        const ImageListItems = this.imgs.map(item => <ImageList
             key={item.id}
             name={item.name}
             select={this.selectImg}
