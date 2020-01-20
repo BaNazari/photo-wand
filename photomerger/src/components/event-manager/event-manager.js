@@ -145,6 +145,7 @@ class EventManager extends React.Component {
 
   }
 
+
   componentDidMount() {
     const test = this._test.current
     const topLeft = this._topLeft.current

@@ -10,8 +10,7 @@ class FileManager extends React.Component {
         super()
         this.state = {
             showList: false,
-            //imgs: Images,
-            current: 0
+            current: null
         }
         this.imgs = Images
 
@@ -35,20 +34,26 @@ class FileManager extends React.Component {
                 imgHolder.removeChild(imgHolder.firstChild)
                 var newImage = document.createElement('img')
                 newImage.classList.add('new-selected-img')
+                newImage.id = this.imgs[i].id
                 imgHolder.appendChild(newImage)
+                
+                //Context: According to Webpack, a context is created if your require() contains an expression rather 
+                //than a string literal, so the exact module is not known on compile time.
+                //https://webpack.js.org/guides/dependency-management/
                 const photoCollection = require.context('../../assets/', true)
+                console.log("cont: "+photoCollection)
                 const photo = photoCollection(`./${this.imgs[i].src}`)
                 newImage.src = photo
                 this.imageList()
-            
+                this.setState({
+                    current: { id: this.imgs[i].id, name: this.imgs[i].name, src: this.imgs[i].src }
+                })
+                
+            //break the loop after img found
             }
         }
-        this.setState({
-            current: imgId
-        })
 
     }
-
 
 
     componentDidUpdate() {
@@ -99,6 +104,8 @@ export default FileManager
 //modify styles > add sass > go BEM
 
 //add tests
+
+//add real image uploader
 
 
 //componentholder sends w/h and src for layers with active true
