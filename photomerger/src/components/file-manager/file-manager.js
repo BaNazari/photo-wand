@@ -56,10 +56,6 @@ class FileManager extends React.Component {
     }
 
 
-    componentDidUpdate() {
-        console.log(this.state)
-
-    }
 
     render() {
         const ImageListItems = this.imgs.map(item => <ImageList

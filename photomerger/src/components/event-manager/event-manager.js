@@ -7,8 +7,8 @@ import PhotoTool from '../photo-tool/photo-tool';
 
 class EventManager extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       photoCorners: []
     }
@@ -131,13 +131,13 @@ class EventManager extends React.Component {
     var parentCornerX = document.getElementById("photo-editor").offsetLeft
     var parentCornerY = document.getElementById("photo-editor").offsetTop
 
- 
+
 
     var grandParentCornerX = document.getElementById("event-manager").offsetLeft
     var grandParentCornerY = document.getElementById("event-manager").offsetTop
 
-    draggableElement.style.left = x - parentCornerX - 5 -grandParentCornerX + 'px';
-    draggableElement.style.top = y - parentCornerY - 5 -grandParentCornerY + 'px';
+    draggableElement.style.left = x - parentCornerX - 5 - grandParentCornerX + 'px';
+    draggableElement.style.top = y - parentCornerY - 5 - grandParentCornerY + 'px';
 
 
     this.relocateCorner(draggableElement)
@@ -158,11 +158,21 @@ class EventManager extends React.Component {
 
   }
 
+  componentDidUpdate() {
+    if (this.props.newImageSrc) {
+      let Ratio = this.props.newImageSrc.widthInImageHolder / this.props.newImageSrc.heightInImageHolder
+      let currentHeigh = document.getElementById("test").clientHeight
+      //alert(currentHeigh)
+      document.getElementById("test").style.width = Ratio*currentHeigh.toString() + 'px'
+      console.log(document.getElementById("test"))
+    }
+
+  }
 
   render() {
-
+    console.log(this.props)
     return (
-      <div  className=" row event-manager justify-content-center" id="event-manager">
+      <div className=" row event-manager justify-content-center" id="event-manager">
 
         <div className="col-6 block--middle-row " ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor">
           <div ref={this._test} className="test" id="test">
