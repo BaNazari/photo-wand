@@ -10,15 +10,18 @@ import React from 'react';
 //import photo from '../../assets/photoSample3.jpg';
 //import photo from '../../assets/photoSample4.jpg';
 // import photo from '../../assets/photoSample5.jpg';
-const photo = require('../../assets/photoSample4.jpg')
+
 
 class PhotoTool extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            
+
         }
+
+        //this.photo = require('../../assets/photoSample4.jpg')
+        //this.photo = require(`../../assets/${this.props.imageSrc}`)
     }
 
 
@@ -29,21 +32,21 @@ class PhotoTool extends React.Component {
         const img = this.refs.image
 
 
-         img.onload = () => {
+        img.onload = () => {
 
-             var photoRatio = img.width / img.height;
-             var canvasRatio = canvas.width / canvas.height
-             //If photow/h <= canvasw/h fit photo height to canvas height
-             //Else, fit photo width to canvas width
-             if (photoRatio <= canvasRatio) {
-                 ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * img.width * (canvas.height / img.height), 0.9 * canvas.height)
-             }
+            var photoRatio = img.width / img.height;
+            var canvasRatio = canvas.width / canvas.height
+            //If photow/h <= canvasw/h fit photo height to canvas height
+            //Else, fit photo width to canvas width
+            if (photoRatio <= canvasRatio) {
+                ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * img.width * (canvas.height / img.height), 0.9 * canvas.height)
+            }
 
-             else {
-                 ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * canvas.width, 0.9 * img.height * (canvas.width / img.width))
-             }
-         }
-         console.log("height : "+ img.height)
+            else {
+                ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * canvas.width, 0.9 * img.height * (canvas.width / img.width))
+            }
+        }
+        console.log("height : " + img.height)
 
     }
 
@@ -52,10 +55,15 @@ class PhotoTool extends React.Component {
     render() {
 
         return (
-            <div className=" photo-tool">
+            <div className=" photo-tool">{this.props.imageSrc ?
                 <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
-                    <img ref="image" src={photo}/>
+                    <img ref="image" src={require(`../../assets/${this.props.imageSrc.src}`)} />
                 </canvas>
+                :
+                <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
+                    <img ref="image" />
+                </canvas>
+            }
 
             </div>
         )

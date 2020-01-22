@@ -183,7 +183,7 @@ class EventManager extends React.Component {
           </div>
         </div>
         <div className="col-6 photo-tool-holder">
-          <PhotoTool />
+          <PhotoTool imageSrc={this.props.newImageSrc}/>
         </div>
         <div>
           <LayerManger />

@@ -29,6 +29,7 @@ class ComponentHolder extends React.Component {
                 prevSt.imageSet.push(newImg);
                 this.state.imageSet[this.state.imageSet.length - 1].widthInImageHolder = dim[0]
                 this.state.imageSet[this.state.imageSet.length - 1].heightInImageHolder = dim[1]
+                this.state.imageSet[this.state.imageSet.length - 1].active = true
             })
             //**Rewrite without forceUpdate
             this.forceUpdate()
@@ -41,13 +42,12 @@ class ComponentHolder extends React.Component {
     }
 
 
-    
+    //**Add an activator which obseves the active properties and outputs only one active image bvased on some criteria.
 
     render() {
 
         return (
             <div className="component-holder" id="component-holder">
-                <div>fkulhlj    {this.state.imageSet.length}</div>
                 <div>
                     <EventManager newImageSrc={this.state.imageSet[this.state.imageSet.length - 1]} />
                 </div>
