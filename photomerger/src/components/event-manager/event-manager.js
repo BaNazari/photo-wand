@@ -136,8 +136,8 @@ class EventManager extends React.Component {
     var grandParentCornerX = document.getElementById("event-manager").offsetLeft
     var grandParentCornerY = document.getElementById("event-manager").offsetTop
 
-    draggableElement.style.left = x - parentCornerX - 5 - grandParentCornerX + 'px';
-    draggableElement.style.top = y - parentCornerY - 5 - grandParentCornerY + 'px';
+    draggableElement.style.left = x - parentCornerX - 10 - grandParentCornerX + 'px';
+    draggableElement.style.top = y - parentCornerY - 10 - grandParentCornerY + 'px';
 
 
     this.relocateCorner(draggableElement)

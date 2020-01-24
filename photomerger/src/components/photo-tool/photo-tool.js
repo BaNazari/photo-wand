@@ -33,17 +33,18 @@ class PhotoTool extends React.Component {
 
 
         img.onload = () => {
-
+        
+            canvas.width = canvas.width //**If you dont do it, the previous img will remain. This line resets canvas.
             var photoRatio = img.width / img.height;
             var canvasRatio = canvas.width / canvas.height
             //If photow/h <= canvasw/h fit photo height to canvas height
             //Else, fit photo width to canvas width
             if (photoRatio <= canvasRatio) {
-                ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * img.width * (canvas.height / img.height), 0.9 * canvas.height)
+                ctx.drawImage(img, (0.0 * canvas.width), (0.0 * canvas.height), 1 * img.width * (canvas.height / img.height), 1 * canvas.height)
             }
 
             else {
-                ctx.drawImage(img, (0.05 * canvas.width), (0.05 * canvas.height), 0.9 * canvas.width, 0.9 * img.height * (canvas.width / img.width))
+                ctx.drawImage(img, (0.0 * canvas.width), (0.0 * canvas.height), 1 * canvas.width, 1 * img.height * (canvas.width / img.width))
             }
         }
         console.log("height : " + img.height)
