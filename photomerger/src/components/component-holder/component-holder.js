@@ -36,13 +36,13 @@ class ComponentHolder extends React.Component {
             console.log(this.state.imageSet)
         }
         else {
-            //**Add a notification compoenent
+            //**Add a notification component
             alert("Select a photo!")
         }
     }
 
 
-    //**Add an activator which obseves the active properties and outputs only one active image bvased on some criteria.
+    //**Add an activator which observes the active properties and outputs only one active image bvased on some criteria.
 
     render() {
 

@@ -76,3 +76,17 @@ class PhotoTool extends React.Component {
 
 export default PhotoTool
 
+/* 
+var square = {
+    corner: [0,0],
+    width: 50,
+    height: 50,
+    color: "red",
+    draw: function() {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.corner[0], this.corner[1], this.width, this.height);
+    }
+}
+
+https://www.rithmschool.com/courses/advanced-javascript-part-2/canvas-continued
+*/
