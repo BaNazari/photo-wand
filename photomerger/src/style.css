@@ -12,7 +12,7 @@
 
 .exporter {
     margin: 2%;
-    background-color: aquamarine;
+    background-color: gold;
     height: 100px;
     border-radius: 10px;
     text-align: center;
@@ -60,7 +60,7 @@
 }
 
 .component-holder {
-    background-color: gold;
+    background-color: rgb(10, 10, 10);
     padding: 10px;
     margin: 5%;
 }
@@ -84,16 +84,16 @@
     margin: 20px;
     background-color: white;
     height: 450px;
-    background-color: aquamarine;
+    background-color: gold;
     border-radius: 10px;
     padding: 20px;
 }
 
 .layer-manager {
     position: absolute;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.15);
     height: 85%;
-    border: 2px solid aquamarine;
+    border: 2px solid gold;
     border-radius: 10px;
     text-align: center;
     font-size: 30px;
@@ -106,7 +106,7 @@
     margin: 2%;
     background-color: white;
     height: 100px;
-    background-color: aquamarine;
+    background-color: gold;
     border-radius: 10px;
     text-align: left;
     font-size: 30px;
@@ -118,7 +118,7 @@
     top:-50%;
     left: 15%;
     width: 15%;
-    background-color: aquamarine;
+    background-color: goldenrod
 }
 
 .new-selected-img {
@@ -144,18 +144,28 @@
     position: absolute;
     top: 8%;
     left: 10px;
-    background-color: gold;
+    background-color: rgb(10, 10, 10);
+    color: white;
     font-size: 18px;
     margin-top: 5%;
+}
+
+.browse-btn:hover {
+    color: orange
 }
 
 .add-btn{
     position: absolute;
     top: 8%;
     right: 10px;
-    background-color: gold;
+    background-color: rgb(10, 10, 10);
+    color:white;
     font-size: 18px;
     margin-top: 5%;
+}
+
+.add-btn:hover {
+    color: orange
 }
 
 .list-item {
