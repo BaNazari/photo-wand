@@ -23,4 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 
 #IDE
-/.vscode
+/.vscode/*
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
