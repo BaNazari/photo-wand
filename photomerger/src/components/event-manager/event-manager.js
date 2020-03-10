@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LayerManger from '../layer-manager/layer-manager';
+import LayerManager from '../layer-manager/layer-manager';
 import PhotoTool from '../photo-tool/photo-tool';
 
 
@@ -186,7 +186,7 @@ class EventManager extends React.Component {
           <PhotoTool imageSrc={this.props.newImageSrc}/>
         </div>
         <div>
-          <LayerManger />
+          <LayerManager />
         </div>
 
       </div>

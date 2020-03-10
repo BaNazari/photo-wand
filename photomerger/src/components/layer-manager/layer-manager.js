@@ -1,6 +1,6 @@
 import React from 'react'
 
-class LayerManger extends React.Component {
+class LayerManager extends React.Component {
 
     constructor() {
         super();
@@ -19,4 +19,4 @@ class LayerManger extends React.Component {
 }
 
 
-export default LayerManger
+export default LayerManager

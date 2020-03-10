@@ -30,6 +30,7 @@ class ComponentHolder extends React.Component {
                 this.state.imageSet[this.state.imageSet.length - 1].widthInImageHolder = dim[0]
                 this.state.imageSet[this.state.imageSet.length - 1].heightInImageHolder = dim[1]
                 this.state.imageSet[this.state.imageSet.length - 1].active = true
+                //**Make other images active=false
             })
             //**Rewrite without forceUpdate
             this.forceUpdate()

@@ -54,7 +54,7 @@ class PhotoTool extends React.Component {
 
     //generate the spans with array nad props
     render() {
-
+        //**Modify the way of dynamic loading of img src. It should load from local storag or directly from eventmanager component.
         return (
             <div className=" photo-tool">{this.props.imageSrc ?
                 <canvas id="my-canvas" ref="mycanvas" className="my-canvas">
