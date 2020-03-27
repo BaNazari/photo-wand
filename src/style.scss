@@ -1,4 +1,6 @@
- 
+$primary-color: gold; 
+$Secondry-color: rgb(10, 10, 10);
+
 .whole-page {
     width: 90%;
     height: 90%;
@@ -12,7 +14,7 @@
 
 .exporter {
     margin: 2%;
-    background-color: gold;
+    background-color: $primary-color;
     height: 100px;
     border-radius: 10px;
     text-align: center;
@@ -60,7 +62,7 @@
 }
 
 .component-holder {
-    background-color: rgb(10, 10, 10);
+    background-color: $Secondry-color;
     padding: 10px;
     margin: 5%;
 }
@@ -84,16 +86,16 @@
     margin: 20px;
     background-color: white;
     height: 450px;
-    background-color: gold;
+    background-color: $primary-color;
     border-radius: 10px;
     padding: 20px;
 }
 
 .layer-manager {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(10, 10, 10, 0.15);
     height: 85%;
-    border: 2px solid gold;
+    border: 2px solid $primary-color;
     border-radius: 10px;
     text-align: center;
     font-size: 30px;
@@ -106,7 +108,7 @@
     margin: 2%;
     background-color: white;
     height: 100px;
-    background-color: gold;
+    background-color: $primary-color;
     border-radius: 10px;
     text-align: left;
     font-size: 30px;
@@ -132,10 +134,10 @@
     height: 85px;
     margin: auto;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(10, 10, 10, 0.15);
     border-radius: 10px;
     font-size: 30px;
-    color: rgba(0, 0, 0, 0.50);
+    color: $Secondry-color;
     text-align: center;
 }
 
@@ -144,21 +146,22 @@
     position: absolute;
     top: 8%;
     left: 10px;
-    background-color: rgb(10, 10, 10);
+    background-color: $Secondry-color;
     color: white;
     font-size: 18px;
     margin-top: 5%;
+
+    &:hover{
+        color: orange
+    }
 }
 
-.browse-btn:hover {
-    color: orange
-}
 
 .add-btn{
     position: absolute;
     top: 8%;
     right: 10px;
-    background-color: rgb(10, 10, 10);
+    background-color: $Secondry-color;
     color:white;
     font-size: 18px;
     margin-top: 5%;
