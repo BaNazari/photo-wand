@@ -40,6 +40,8 @@ class FileManager extends React.Component {
                 //Context: According to Webpack, a context is created if your require() contains an expression rather 
                 //than a string literal, so the exact module is not known on compile time.
                 //https://webpack.js.org/guides/dependency-management/
+                
+                //Why you need it?
                 const photoCollection = require.context('../../assets/', true)
                 console.log("cont: "+photoCollection)
                 const photo = photoCollection(`./${this.imgs[i].src}`)
