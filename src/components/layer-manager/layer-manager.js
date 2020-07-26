@@ -11,7 +11,7 @@ class LayerManager extends React.Component {
 
     render() {
         return(
-            <div className="col-2 layer-manager">
+            <div className="">
                 <p>Layers</p>
             </div>
         )

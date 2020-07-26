@@ -34,7 +34,7 @@ $Secondry-color: rgb(10, 10, 10);
     position: relative;
 }
 
-.event-manager {
+.canvas-manager {
     /* border: 2px solid brown; */
     position: relative;
     padding: 0 !important;
@@ -80,9 +80,10 @@ $Secondry-color: rgb(10, 10, 10);
     padding: 0 !important;
     height: 100%;
     width: 100%;
+    
 }
 
-.event-manager {
+.canvas-manager {
     margin: 20px;
     background-color: white;
     height: 450px;
@@ -222,4 +223,16 @@ $Secondry-color: rgb(10, 10, 10);
     bottom: 0;
     right: 0;
     cursor: se-resize;
+}
+
+.layer-manager{
+    position: absolute;
+    background-color: rgba(10, 10, 10, 0.15);
+    height: 400px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    top: 130px;
+    left: 1300px;
 }

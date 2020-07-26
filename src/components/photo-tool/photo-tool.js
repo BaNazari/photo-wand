@@ -8,6 +8,9 @@ const PhotoTool = (props) => {
         const ctx = myCanvas.getContext("2d")
         const myImg = document.getElementById("myImg")
 
+
+
+
         myCanvas.width = myCanvas.width //**If you dont do it, the previous img will remain. This line resets canvas.
         var photoRatio = myImg.width / myImg.height;
         var canvasRatio = myCanvas.width / myCanvas.height
@@ -34,6 +37,7 @@ const PhotoTool = (props) => {
                 <img id="myImg" />
             }
             </canvas>
+           
         </div>
     )
 

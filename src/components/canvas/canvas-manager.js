@@ -1,11 +1,11 @@
 import React from 'react'
 
-import LayerManager from '../layer-manager/layer-manager';
+//import LayerManager from '../layer-manager/layer-manager';
 import PhotoTool from '../photo-tool/photo-tool';
 
 
 
-class EventManager extends React.Component {
+class CanvasManager extends React.Component {
 
   constructor(props) {
     super(props);
@@ -133,8 +133,8 @@ class EventManager extends React.Component {
 
 
 
-    var grandParentCornerX = document.getElementById("event-manager").offsetLeft
-    var grandParentCornerY = document.getElementById("event-manager").offsetTop
+    var grandParentCornerX = document.getElementById("canvas-manager").offsetLeft
+    var grandParentCornerY = document.getElementById("canvas-manager").offsetTop
 
     draggableElement.style.left = x - parentCornerX - 10 - grandParentCornerX + 'px';
     draggableElement.style.top = y - parentCornerY - 10 - grandParentCornerY + 'px';
@@ -172,7 +172,7 @@ class EventManager extends React.Component {
   render() {
     console.log(this.props)
     return (
-      <div className=" row event-manager justify-content-center" id="event-manager">
+      <div className=" row canvas-manager justify-content-center" id="canvas-manager">
 
         <div className="col-6 block--middle-row " ref={this.photoEditor} onDrop={this.drop} onDragOver={this.allowDrop} id="photo-editor">
           <div ref={this._test} className="test" id="test">
@@ -185,13 +185,11 @@ class EventManager extends React.Component {
         <div className="col-6 photo-tool-holder">
           <PhotoTool imageSrc={this.props.newImageSrc}/>
         </div>
-        <div>
-          <LayerManager />
-        </div>
+
 
       </div>
     )
   }
 }
 
-export default EventManager
+export default CanvasManager

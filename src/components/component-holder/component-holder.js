@@ -1,8 +1,9 @@
 import React from 'react'
 
-import EventManager from '../event-manager/event-manager'
+import EventManager from '../canvas/canvas-manager'
 import FileManager from '../file-manager/file-manager'
 import Exporter from '../exporter/exporter'
+import LayerManager from '../layer-manager/layer-manager';
 
 class ComponentHolder extends React.Component {
     constructor() {
@@ -52,8 +53,12 @@ class ComponentHolder extends React.Component {
                 <div>
                     <EventManager newImageSrc={this.state.imageSet[this.state.imageSet.length - 1]} />
                 </div>
+                <div className="layer-manager col-2">
+                    <LayerManager />
+                </div>
                 <div className="row justify-content-between block">
                     <FileManager imageAdder={this.addImage} />
+
                     <Exporter />
                 </div>
             </div>
