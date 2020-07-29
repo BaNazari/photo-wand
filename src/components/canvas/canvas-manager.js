@@ -1,7 +1,7 @@
 import React from 'react'
 
 //import LayerManager from '../layer-manager/layer-manager';
-import PhotoTool from '../photo-tool/photo-tool';
+import CanvasEle from './canvas-ele';
 
 
 
@@ -183,7 +183,7 @@ class CanvasManager extends React.Component {
           </div>
         </div>
         <div className="col-6 photo-tool-holder">
-          <PhotoTool imageSrc={this.props.newImageSrc}/>
+          <CanvasEle imageSrc={this.props.newImageSrc}/>
         </div>
 
 

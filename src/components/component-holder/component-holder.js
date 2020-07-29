@@ -1,6 +1,6 @@
 import React from 'react'
 
-import EventManager from '../canvas/canvas-manager'
+import CanvasManager from '../canvas/canvas-manager'
 import FileManager from '../file-manager/file-manager'
 import Exporter from '../exporter/exporter'
 import LayerManager from '../layer-manager/layer-manager';
@@ -51,7 +51,7 @@ class ComponentHolder extends React.Component {
         return (
             <div className="component-holder" id="component-holder">
                 <div>
-                    <EventManager newImageSrc={this.state.imageSet[this.state.imageSet.length - 1]} />
+                    <CanvasManager newImageSrc={this.state.imageSet[this.state.imageSet.length - 1]} />
                 </div>
                 <div className="layer-manager col-2">
                     <LayerManager />
