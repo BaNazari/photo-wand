@@ -127,10 +127,12 @@ $Secondry-color: rgb(10, 10, 10);
 .new-selected-img {
     width: auto;
     height: 95%;
+    margin: auto;
     
 }
 
 .img-holder {
+    display:flex;
     width: 30%;
     height: 85px;
     margin: auto;
@@ -236,3 +238,4 @@ $Secondry-color: rgb(10, 10, 10);
     top: 130px;
     left: 1300px;
 }
+

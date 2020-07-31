@@ -183,7 +183,7 @@ class CanvasManager extends React.Component {
           </div>
         </div>
         <div className="col-6 photo-tool-holder">
-          <CanvasEle imageSrc={this.props.newImageSrc}/>
+          <CanvasEle imageSrc={this.props.fileAdded}/>
         </div>
 
 
