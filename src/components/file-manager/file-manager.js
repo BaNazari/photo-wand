@@ -61,7 +61,7 @@ const FileManager = function (props) {
                 <div id="img-holder" className="img-holder"></div>
 
 
-                <button className="btn add-btn" onClick={() => { props.imageAdder(imageInput) }}>+</button>
+                <button className="btn add-btn" onClick={() => (props.imageAdder())}>+</button>
 
             </div>
         </div>
