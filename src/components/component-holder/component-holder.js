@@ -32,7 +32,8 @@ class ComponentHolder extends React.Component {
                     width: width,
                     height: height,
                     src: src,
-                    active: true
+                    active: true,
+                    id: "00"+prevSt.imageSet.length
                 });
 
                 //**Make other images active=false by setting keys for images
