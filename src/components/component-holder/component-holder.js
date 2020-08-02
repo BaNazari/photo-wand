@@ -11,11 +11,22 @@ class ComponentHolder extends React.Component {
         this.state = {
             imageSet: [],
         }
-        this.addImage = this.addImage.bind(this)
+        this.addImage = this.addImage.bind(this);
+        this.imageActivator = this.imageActivator.bind(this)
     }
 
     imageActivator(id) {
-        //Activate id by ref
+        
+        this.setState((prevSt) => {
+            prevSt.imageSet.forEach( element => {
+                if (element.id===id) {
+                    element.active = true
+                } else {
+                    element.active = false
+                }
+            })
+        })
+
     }
 
     addImage() {
@@ -26,20 +37,20 @@ class ComponentHolder extends React.Component {
             let height = newImg.naturalHeight;
             let src = newImg.src;
 
-            //Generate id, each id can be added only once.
             this.setState((prevSt) => {
                 prevSt.imageSet.push({
                     width: width,
                     height: height,
                     src: src,
-                    active: true,
+                    active: false,
                     id: "00"+prevSt.imageSet.length
                 });
-
-                //**Make other images active=false by setting keys for images
+                //Pass down the active one.
             })
+
             //**Rewrite without forceUpdate
             this.forceUpdate()
+            newImg.remove()
             console.log({ inholder: this.state.imageSet })
         }
 
@@ -49,7 +60,11 @@ class ComponentHolder extends React.Component {
         }
     }
 
-
+    componentDidUpdate() {
+        this.imageActivator(this.state.imageSet[this.state.imageSet.length-1].id)   
+    }
+    
+    
     render() {
 
         return (
