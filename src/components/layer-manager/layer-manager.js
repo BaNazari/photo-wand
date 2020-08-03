@@ -1,22 +1,32 @@
 import React from 'react'
+import LayerEle from './layer-ele'
 
-class LayerManager extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
+const LayerManager = function (props) {
+    let layers;
 
-        }
-    }
-
-    render() {
-        return(
-            <div className="">
-                <p>Layers</p>
-            </div>
+    if (props.newImageSrc.length) {
+        layers = props.newImageSrc.map((img) =>
+            <LayerEle
+                width={img.width}
+                height={img.height}
+                src={img.src}
+                id={img.id}
+                active={img.active}
+                key={img.id}
+            ></LayerEle>
         )
-    }
-}
+        console.log({proppy: props})
 
+    } else {
+        layers = <p>hi</p>
+    }
+
+    return (
+        <div className="">
+            {layers}
+        </div>
+    )
+}
 
 export default LayerManager

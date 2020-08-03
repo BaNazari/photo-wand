@@ -237,5 +237,11 @@ $Secondry-color: rgb(10, 10, 10);
     font-size: 30px;
     top: 130px;
     left: 1300px;
+    overflow: scroll;
 }
 
+.layer-image {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+}

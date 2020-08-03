@@ -74,7 +74,7 @@ class ComponentHolder extends React.Component {
 
                 </div>
                 <div className="layer-manager col-2">
-                    <LayerManager />
+                    <LayerManager newImageSrc={this.state.imageSet}/>
                 </div>
                 <div className="row justify-content-between block">
                     <FileManager imageAdder={this.addImage} />
