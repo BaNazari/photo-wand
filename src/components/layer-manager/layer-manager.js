@@ -1,6 +1,6 @@
 import React from 'react'
 import LayerEle from './layer-ele'
-
+//img children number equal to props.length
 
 const LayerManager = function (props) {
     let layers;
@@ -21,7 +21,7 @@ const LayerManager = function (props) {
     } else {
         layers = <p>hi</p>
     }
-
+    console.log("len: "+layers.length)
     return (
         <div className="">
             {layers}

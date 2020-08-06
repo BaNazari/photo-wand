@@ -9,4 +9,5 @@ const LayerEle = function (props) {
 }
 
 //Add onclick, so each clicked iamge will trun active.
+//Add remove
 export default LayerEle
