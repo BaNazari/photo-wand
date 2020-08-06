@@ -5,6 +5,10 @@ import FileManager from '../file-manager/file-manager'
 import Exporter from '../exporter/exporter'
 import LayerManager from '../layer-manager/layer-manager';
 
+
+//One active element per render
+//
+
 class ComponentHolder extends React.Component {
     constructor() {
         super()
@@ -13,6 +17,7 @@ class ComponentHolder extends React.Component {
         }
         this.addImage = this.addImage.bind(this);
         this.imageActivator = this.imageActivator.bind(this)
+        this.removeImage = this.removeImage.bind(this)
     }
 
     imageActivator(id) {
@@ -64,6 +69,16 @@ class ComponentHolder extends React.Component {
         this.imageActivator(this.state.imageSet[this.state.imageSet.length-1].id)   
     }
     
+    removeImage(imgId) {
+        this.setState((prevSt) => {
+            let i;
+            for(i=0; i<prevSt.imageSet.length; i++) {
+                if(prevSt.imageSet[i].id === imgId) {
+                    prevSt.imageSet.splice(i,1)
+                }
+            }
+        })
+    }
     
     render() {
 
@@ -74,7 +89,7 @@ class ComponentHolder extends React.Component {
 
                 </div>
                 <div className="layer-manager col-2">
-                    <LayerManager newImageSrc={this.state.imageSet}/>
+                    <LayerManager newImageSrc={this.state.imageSet} imgRemover={this.removeImage}/>
                 </div>
                 <div className="row justify-content-between block">
                     <FileManager imageAdder={this.addImage} />

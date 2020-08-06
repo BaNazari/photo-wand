@@ -10,14 +10,16 @@ let props2 = [{
     height: 1,
     src: "src",
     active: false,
-    id: "00"
+    id: "00",
+    remove: {}
 },
 {
     width: 1,
     height: 1,
     src: "src",
     active: false,
-    id: "00"
+    id: "00",
+    remove: {}
 }
 ]
 
