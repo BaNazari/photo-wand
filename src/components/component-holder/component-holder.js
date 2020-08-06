@@ -21,10 +21,10 @@ class ComponentHolder extends React.Component {
     }
 
     imageActivator(id) {
-        
+
         this.setState((prevSt) => {
-            prevSt.imageSet.forEach( element => {
-                if (element.id===id) {
+            prevSt.imageSet.forEach(element => {
+                if (element.id === id) {
                     element.active = true
                 } else {
                     element.active = false
@@ -35,7 +35,7 @@ class ComponentHolder extends React.Component {
     }
 
     addImage() {
-        
+
         let newImg = document.getElementById("new-selected-img")
         if (newImg) {
             let width = newImg.naturalWidth;
@@ -48,7 +48,7 @@ class ComponentHolder extends React.Component {
                     height: height,
                     src: src,
                     active: false,
-                    id: "00"+prevSt.imageSet.length
+                    id: new Date().valueOf()
                 });
                 //Pass down the active one.
             })
@@ -66,20 +66,24 @@ class ComponentHolder extends React.Component {
     }
 
     componentDidUpdate() {
-        this.imageActivator(this.state.imageSet[this.state.imageSet.length-1].id)   
+        if (this.state.imageSet.length > 0) {
+            this.imageActivator(this.state.imageSet[this.state.imageSet.length - 1].id)
+        }
+
     }
-    
+
     removeImage(imgId) {
         this.setState((prevSt) => {
             let i;
-            for(i=0; i<prevSt.imageSet.length; i++) {
-                if(prevSt.imageSet[i].id === imgId) {
-                    prevSt.imageSet.splice(i,1)
+            for (i = 0; i < prevSt.imageSet.length; i++) {
+                if (prevSt.imageSet[i].id === imgId) {
+                    prevSt.imageSet.splice(i, 1)
                 }
             }
         })
+        this.forceUpdate()
     }
-    
+
     render() {
 
         return (
@@ -89,7 +93,7 @@ class ComponentHolder extends React.Component {
 
                 </div>
                 <div className="layer-manager col-2">
-                    <LayerManager newImageSrc={this.state.imageSet} imgRemover={this.removeImage}/>
+                    <LayerManager newImageSrc={this.state.imageSet} imgRemover={this.removeImage} />
                 </div>
                 <div className="row justify-content-between block">
                     <FileManager imageAdder={this.addImage} />
