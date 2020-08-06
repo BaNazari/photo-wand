@@ -1,173 +1,178 @@
-$primary-color: gold; 
+$primary-color : gold;
 $Secondry-color: rgb(10, 10, 10);
 
 .whole-page {
-    width: 90%;
+    width : 90%;
     height: 90%;
-    
+
     margin: (10%, 15%, 10%, 15%);
 }
- /* vh and vw make it unresponsive*/
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+
+/* vh and vw make it unresponsive*/
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
     max-width: 1920px;
 }
 
 .exporter {
-    margin: 2%;
+    margin          : 2%;
     background-color: $primary-color;
-    height: 100px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 30px;
+    height          : 100px;
+    border-radius   : 10px;
+    text-align      : center;
+    font-size       : 30px;
 }
 
 
 .new-class {
     background-color: green;
-    border-style: dotted;
-    cursor: move;
+    border-style    : dotted;
+    cursor          : move;
 }
 
 .draggy {
-    height: 50px;
-    width: 100px;
+    height  : 50px;
+    width   : 100px;
     position: relative;
 }
 
 .canvas-manager {
     /* border: 2px solid brown; */
     position: relative;
-    padding: 0 !important;
-    margin: auto;
+    padding : 0 !important;
+    margin  : auto;
 }
 
 .block--middle-row {
     position: absolute;
-    top: 5%;
-    left: 20%;   
-    z-index: 500;
-    height: 82%;
-    padding: 0 !important;
-    border: 2px solid midnightblue;
-    margin: 0;
+    top     : 5%;
+    left    : 20%;
+    z-index : 500;
+    height  : 82%;
+    padding : 0 !important;
+    border  : 2px solid midnightblue;
+    margin  : 0;
 }
 
 .photo-tool-holder {
-    position: absolute;
+    position : absolute;
     /* border: 2px solid blue; */
-    top: 5%;
-    left: 20%;
-    padding: 0 !important;
-    margin: 0;
+    top      : 5%;
+    left     : 20%;
+    padding  : 0 !important;
+    margin   : 0;
 }
 
 .component-holder {
     background-color: $Secondry-color;
-    padding: 10px;
-    margin: 5%;
+    padding         : 10px;
+    margin          : 5%;
 }
 
 .test {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color:white;
-    opacity: 0.5;    
+    position        : relative;
+    width           : 100%;
+    height          : 100%;
+    background-color: white;
+    opacity         : 0.5;
 }
 
 .photo-tool {
     display: flex;
     padding: 0 !important;
-    height: 100%;
-    width: 100%;
-    
+    height : 100%;
+    width  : 100%;
+
 }
 
 .canvas-manager {
-    margin: 20px;
+    margin          : 20px;
     background-color: white;
-    height: 450px;
+    height          : 450px;
     background-color: $primary-color;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius   : 10px;
+    padding         : 20px;
 }
 
 .layer-manager {
-    position: absolute;
+    position        : absolute;
     background-color: rgba(10, 10, 10, 0.15);
-    height: 85%;
-    border: 2px solid $primary-color;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 30px;
-    top: 5%;
-    left: 75%
+    height          : 85%;
+    border          : 2px solid $primary-color;
+    border-radius   : 10px;
+    text-align      : center;
+    font-size       : 30px;
+    top             : 5%;
+    left            : 75%
 }
 
 .file-manager {
-    position: relative;
-    margin: 2%;
+    position        : relative;
+    margin          : 2%;
     background-color: white;
-    height: 100px;
+    height          : 100px;
     background-color: $primary-color;
-    border-radius: 10px;
-    text-align: left;
-    font-size: 30px;
-    padding: 7px;
+    border-radius   : 10px;
+    text-align      : left;
+    font-size       : 30px;
+    padding         : 7px;
 }
 
-.img-list-popup{
-    position: absolute;
-    top:-50%;
-    left: 15%;
-    width: 15%;
+.img-list-popup {
+    position        : absolute;
+    top             : -50%;
+    left            : 15%;
+    width           : 15%;
     background-color: goldenrod
 }
 
 .new-selected-img {
-    width: auto;
+    width : auto;
     height: 95%;
     margin: auto;
-    
+
 }
 
 .img-holder {
-    display:flex;
-    width: 30%;
-    height: 85px;
-    margin: auto;
-    text-align: center;
+    display         : flex;
+    width           : 30%;
+    height          : 85px;
+    margin          : auto;
+    text-align      : center;
     background-color: rgba(10, 10, 10, 0.15);
-    border-radius: 10px;
-    font-size: 30px;
-    color: $Secondry-color;
-    text-align: center;
+    border-radius   : 10px;
+    font-size       : 30px;
+    color           : $Secondry-color;
+    text-align      : center;
 }
 
 
-.browse-btn{
-    position: absolute;
-    top: 8%;
-    left: 10px;
+.browse-btn {
+    position        : absolute;
+    top             : 8%;
+    left            : 10px;
     background-color: $Secondry-color;
-    color: white;
-    font-size: 18px;
-    margin-top: 5%;
+    color           : white;
+    font-size       : 18px;
+    margin-top      : 5%;
 
-    &:hover{
+    &:hover {
         color: orange
     }
 }
 
 
-.add-btn{
-    position: absolute;
-    top: 8%;
-    right: 10px;
+.add-btn {
+    position        : absolute;
+    top             : 8%;
+    right           : 10px;
     background-color: $Secondry-color;
-    color:white;
-    font-size: 18px;
-    margin-top: 5%;
+    color           : white;
+    font-size       : 18px;
+    margin-top      : 5%;
 }
 
 .add-btn:hover {
@@ -176,17 +181,17 @@ $Secondry-color: rgb(10, 10, 10);
 
 .list-item {
     background-color: darkcyan;
-    margin: 3%;
-    padding: 10%;
-    border-radius: 4px;
-    font-size: medium;
+    margin          : 3%;
+    padding         : 10%;
+    border-radius   : 4px;
+    font-size       : medium;
 }
 
 .my-canvas {
     /* border: 2px solid black; */
-    width: 100%;
+    width : 100%;
     height: 100%;
-    margin: 0 ;
+    margin: 0;
 }
 
 
@@ -195,12 +200,12 @@ $Secondry-color: rgb(10, 10, 10);
 .resize-handle-se,
 .resize-handle-nw,
 .resize-handle-sw {
-    position: absolute;
-    display: block;
-    width: 10px;
-    height: 10px;
+    position  : absolute;
+    display   : block;
+    width     : 10px;
+    height    : 10px;
     background: goldenrod;
-    z-index: 999;
+    z-index   : 999;
 }
 
 .resize-handle-nw {
@@ -211,37 +216,49 @@ $Secondry-color: rgb(10, 10, 10);
 
 .resize-handle-sw {
     bottom: 0;
-    left: 0;
+    left  : 0;
     cursor: sw-resize;
 }
 
 .resize-handle-ne {
-    top: 0;
-    right: 0;
+    top   : 0;
+    right : 0;
     cursor: ne-resize;
 }
 
 .resize-handle-se {
     bottom: 0;
-    right: 0;
+    right : 0;
     cursor: se-resize;
 }
 
-.layer-manager{
-    position: absolute;
+.layer-manager {
+    position        : absolute;
     background-color: rgba(10, 10, 10, 0.15);
-    height: 400px;
-    border: 2px solid gold;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 30px;
-    top: 130px;
-    left: 1300px;
-    overflow: scroll;
+    height          : 400px;
+    border          : 2px solid gold;
+    border-radius   : 10px;
+    text-align      : center;
+    font-size       : 30px;
+    top             : 130px;
+    left            : 1300px;
+    overflow        : scroll;
 }
 
 .layer-image {
-    width: 100px;
+    width : 100px;
     height: auto;
     margin: 5px;
+}
+
+.remover-button {
+    position        : absolute;
+    right           : 50px;
+    background-color: $Secondry-color;
+    color           : white;
+    font-size       : 22px;
+    margin-top      : 5%;
+    padding         : 5px 10px;
+    border-radius   : 5px;
+    cursor: pointer;
 }

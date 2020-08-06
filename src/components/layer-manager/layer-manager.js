@@ -22,12 +22,12 @@ const LayerManager = function (props) {
         console.log({ proppy: props })
 
     } else {
-        layers = <p>hi</p>
+        layers = <p>Photos adding here ...</p>
     }
     console.log("len: " + layers.length)
 
     function remove(imgID) {
-        alert(imgID)
+        
         props.imgRemover(imgID)
     }
 

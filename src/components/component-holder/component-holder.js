@@ -7,7 +7,7 @@ import LayerManager from '../layer-manager/layer-manager';
 
 
 //One active element per render
-//
+//On remove: one unti length lower and the removed id missing
 
 class ComponentHolder extends React.Component {
     constructor() {
